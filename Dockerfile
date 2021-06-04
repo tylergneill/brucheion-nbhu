@@ -14,8 +14,11 @@ RUN STACK=heroku-20 /tmp/buildpack/heroku/go/bin/compile /app /tmp/build_cache /
 FROM heroku/heroku:20
 
 COPY --from=build /app /app
+COPY /app/config.json /app/bin
+COPY /app/providers.json /app/bin
 ENV HOME /app
 WORKDIR /app
+
 RUN useradd -m heroku
 USER heroku
 EXPOSE 7000
