@@ -16,6 +16,7 @@ FROM heroku/heroku:20
 COPY --from=build /app /app
 COPY /app/config.json /app/bin
 COPY /app/providers.json /app/bin
+COPY /app/SanskritOrthography.json /app/bin
 ENV HOME /app
 WORKDIR /app
 
