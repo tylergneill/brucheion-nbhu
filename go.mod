@@ -1,4 +1,4 @@
-module github.com/brucheion/brucheion
+module github.com/vedicsociety/brucheion
 
 go 1.16
 
