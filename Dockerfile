@@ -10,6 +10,8 @@ RUN curl https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/go.tgz | ta
 #Execute Buildpack
 RUN STACK=heroku-20 /tmp/buildpack/heroku/go/bin/compile /app /tmp/build_cache /tmp/env
 
+RUN CGO_ENABLED=0 go build -mod vendor -o brucheion ./app/brucheion.go
+
 # Prepare final, minimal image
 FROM heroku/heroku:20
 
@@ -18,4 +20,5 @@ ENV HOME /app
 WORKDIR /app
 RUN useradd -m heroku
 USER heroku
+EXPOSE 7000
 CMD /app/brucheion
