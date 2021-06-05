@@ -19,4 +19,4 @@ WORKDIR /app
 RUN useradd -m heroku
 USER heroku
 EXPOSE 7000
-CMD [ "/app/brucheion", "-localAssets", "-noauth", "-config=/app/config.json"]
+CMD [ "/app/bin/brucheion", "-localAssets", "-noauth", "-config=/app/config.json"]
