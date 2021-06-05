@@ -20,4 +20,4 @@ COPY /app/bin/brucheion /app/
 RUN useradd -m heroku
 USER heroku
 EXPOSE 7000
-CMD [ "/app/bin/brucheion", "-localAssets", "-noauth"]
+CMD [ "/app/brucheion", "-localAssets", "-noauth"]
