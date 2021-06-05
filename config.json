@@ -1,5 +1,4 @@
 {
-  // "host": "http://localhost:7000", ** setting port and URL for Heroku Deployment
     "host": "http://brucheion.herokuapp.com",
     "port": ":80",
   "maxAge": 86400,
