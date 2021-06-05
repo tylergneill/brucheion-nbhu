@@ -10,8 +10,6 @@ all: deps test build
 build: app brucheion
 
 brucheion:
-	set GOOS=windows 
-	set GOARCH=amd64
 	$(GO) build -o $(BIN) -v
 
 release: deps app test
