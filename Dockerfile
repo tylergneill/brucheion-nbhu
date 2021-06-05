@@ -16,8 +16,7 @@ FROM heroku/heroku:20
 COPY --from=build /app /app
 ENV HOME /app
 WORKDIR /app
-COPY /app/bin/brucheion /app/
 RUN useradd -m heroku
 USER heroku
 EXPOSE 7000
-CMD [ "/app/brucheion", "-localAssets", "-noauth"]
+CMD [ "/app/brucheion", "-localAssets", "-noauth", "-config=/app/config.json"]
