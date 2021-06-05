@@ -90,20 +90,28 @@ func main() {
 
 	router := createRouter()
 
-	log.Printf("Listening at %s\n", config.Host)
-	l, err := net.Listen("tcp", config.Port)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	if Version != "development" {
-		err = open.Start(config.Host)
-		if err != nil {
-			log.Println(err)
+	if *heroku { //if started for heroku
+		port := os.Getenv("PORT")
+		if port == "" {
+			log.Fatal("$PORT must be set")
 		}
-	}
+		log.Fatal(http.ListenAndServe(":"+port, router))
+	} else {
+		log.Printf("Listening at %s\n", config.Host)
+		l, err := net.Listen("tcp", config.Port)
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	log.Fatal(http.Serve(l, router))
+		if Version != "development" {
+			err = open.Start(config.Host)
+			if err != nil {
+				log.Println(err)
+			}
+		}
+
+		log.Fatal(http.Serve(l, router))
+	}
 }
 
 //landingPage is the first landing page for experimental testing
