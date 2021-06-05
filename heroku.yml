@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: ./brucheion
+  web: ./brucheion -localAssets -noauth -config=config.json -heroku

@@ -13,7 +13,6 @@ require (
 	github.com/c4milo/unpackit v0.0.0-20170704181138-4ed373e9ef1c // indirect
 	github.com/coreos/go-semver v0.3.0
 	github.com/dsnet/compress v0.0.1 // indirect
-	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.4.3 // indirect
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/google/go-querystring v1.0.0 // indirect
@@ -33,5 +32,4 @@ require (
 	golang.org/x/net v0.0.0-20210119194325-5f4716e94777
 	golang.org/x/oauth2 v0.0.0-20210201163806-010130855d6c // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/protobuf v1.25.0 // indirect
 )
