@@ -15,4 +15,4 @@ RUN adduser -S -D -H -h / heroku
 USER heroku
 COPY --from=builder /app /
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-CMD [ "/brucheion", "-localAssets", "-noauth", "-config=config.json", "heroku"]
+CMD [ "/brucheion", "-localAssets", "-noauth", "-config=config.json", "-heroku"]
