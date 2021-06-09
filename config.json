@@ -1,6 +1,6 @@
 {
-  "host": "http://localhost:7000",
-  "port": ":7000",
+    "host": "http://brucheion.herokuapp.com",
+    "port": ":80",
   "maxAge": 86400,
   "userDB": "./users.db",
   "orthographyNormalisationFilenames": {
