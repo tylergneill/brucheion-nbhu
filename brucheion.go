@@ -95,7 +95,10 @@ func main() {
 		if port == "" {
 			log.Fatal("$PORT must be set")
 		}
-		log.Fatal(http.ListenAndServe(":"+port, router))
+
+		config.Host = "http://brucheion.herokuapp.com"
+		config.Port = ":" + port
+		log.Fatal(http.ListenAndServe(config.Port, router))
 	} else {
 		log.Printf("Listening at %s\n", config.Host)
 		l, err := net.Listen("tcp", config.Port)
