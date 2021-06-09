@@ -131,7 +131,7 @@ func landingPage(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	//log.Printf("func MainPage: User still known? Should be: %s\n", user)
+	log.Printf("func MainPage: User still known? Should be: %s\n", user)
 
 	dbname := config.UserDB
 
@@ -141,8 +141,8 @@ func landingPage(res http.ResponseWriter, req *http.Request) {
 	log.Println()
 	log.Println(buckets)
 
-	//test := BoltRetrieve(dbname, "users", "test")
-	adri, _ := BoltRetrieve(dbname, "users", "adri")
+	// test := BoltRetrieve(dbname, "users", "test")
+	adri, _ := BoltRetrieve(dbname, "users", "guest")
 
 	log.Println("User test:")
 	log.Println(BoltRetrieve(dbname, "users", "test"))
@@ -226,6 +226,7 @@ func createRouter() *mux.Router {
 	router.HandleFunc("/edit2/{urn}/", Edit2Page)
 	router.HandleFunc("/compare/{urn}+{urn2}/", comparePage)
 	router.HandleFunc("/consolidate/{urn}+{urn2}/", consolidatePage)
+	router.HandleFunc("/saveImage/{key}/{updated}/", SaveImageRef)
 	router.HandleFunc("/saveImage/{key}/{updated}/", SaveImageRef)
 	router.HandleFunc("/newWork/", newWork)
 	router.HandleFunc("/newCollection/{name}/{urns}/", newCollection)

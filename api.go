@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"github.com/ThomasK81/gocite"
-	"github.com/gorilla/mux"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"path/filepath"
 	"strings"
+
+	"github.com/ThomasK81/gocite"
+	"github.com/gorilla/mux"
 )
 
 type Passage struct {
@@ -59,14 +60,17 @@ func handlePassage(w http.ResponseWriter, r *http.Request) {
 	dbName := user + ".db"
 	textRefs := Buckets(dbName)
 	bucketName := strings.Join(strings.Split(urn, ":")[0:4], ":") + ":"
+	log.Println(bucketName)
 
 	d, err := BoltRetrieve(dbName, bucketName, urn)
 	if err != nil {
+		log.Println(err)
 		http.Error(w, "Internal server error", 500)
 		return
 	}
 	c, err := BoltRetrieve(dbName, bucketName, bucketName)
 	if err != nil {
+		log.Println(err)
 		http.Error(w, "Internal server error", 500)
 		return
 	}
@@ -75,6 +79,8 @@ func handlePassage(w http.ResponseWriter, r *http.Request) {
 	passage := gocite.Passage{}
 	json.Unmarshal([]byte(d.JSON), &passage)
 	json.Unmarshal([]byte(c.JSON), &catalog)
+
+	log.Println("json unmarshalled")
 
 	text := passage.Text.TXT
 	passages := strings.Split(text, "\r\n")

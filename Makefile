@@ -10,7 +10,10 @@ all: deps test build
 build: app brucheion
 
 brucheion:
-	$(GO) build -o $(BIN) -v
+	$(GO) build -mod vendor -o $(BIN) -v
+
+server:
+	./brucheion -localAssets -noauth
 
 release: deps app test
 	./scripts/release.sh

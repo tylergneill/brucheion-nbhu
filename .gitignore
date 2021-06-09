@@ -6,9 +6,6 @@ Thumbs.db
 
 # User data
 *.db
-image_archive/*
-cex/*
-!cex/.gitkeep
 !image_archive/test/
 
 # Logs
