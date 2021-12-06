@@ -1,5 +1,5 @@
 {
-    "host": "http://brucheion.herokuapp.com",
+    "host": "http://brucheion-nbhu.herokuapp.com",
     "port": ":80",
   "maxAge": 86400,
   "userDB": "./users.db",

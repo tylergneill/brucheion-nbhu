@@ -96,7 +96,7 @@ func main() {
 			log.Fatal("$PORT must be set")
 		}
 
-		config.Host = "http://brucheion.herokuapp.com"
+		config.Host = "http://brucheion-nbhu.herokuapp.com"
 		config.Port = ":" + port
 		log.Fatal(http.ListenAndServe(config.Port, router))
 	} else {
